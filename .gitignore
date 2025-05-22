@@ -1,0 +1,7 @@
+.vs/
+Workspace/obj/
+Workspace/bin/
+.vscode/tasks.json
+.vscode/launch.json
+*.1
+*.vsidx

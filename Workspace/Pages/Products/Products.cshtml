@@ -1,0 +1,471 @@
+﻿@page
+@{
+    if (Model.user_Type == 0)
+        Layout = "_Layout";
+    if (Model.user_Type == 1)
+        Layout = "_LayoutAdmin";
+    if (Model.user_Type == 2)
+        Layout = "_LayoutEmployee";
+    if (Model.user_Type == 3)
+        Layout = "_LayoutCustomer";
+}
+
+
+@model Workspace.Pages.Products.ProductsModel
+
+@{
+    ViewData["Title"] = "Products";
+}
+<script>
+    document.querySelector("body").style.backgroundColor = "#F6F1E9";
+    document.getElementById("header").style.width = "100%";
+    document.getElementById("header").style.margin = "0";
+</script>
+
+<style>
+    .hover-effect{
+        color: #4C3D3D;
+    }
+.hover-effect:hover {
+            color: #FC4F00;
+}
+</style>
+
+<section id="menu" class="menu">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+
+        <ul class="nav nav-tabs d-flex justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200" role="tablist">
+
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#Snacks" aria-selected="true" role="tab" style="background-color: #FFE194">
+                    <h4 class="hover-effect">Snacks</h4>
+                </a>
+            </li><!-- End tab nav item -->
+
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#Drinks" aria-selected="false" tabindex="-1" role="tab" style="background-color: #FFE194">
+                    <h4 class="hover-effect">Drinks</h4>
+                </a><!-- End tab nav item -->
+
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#Stationery" aria-selected="false" tabindex="-1" role="tab" style="background-color: #FFE194">
+                    <h4 class="hover-effect">Stationery</h4>
+                </a>
+            </li><!-- End tab nav item -->
+
+        </ul>
+
+        <div class="tab-content aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+
+            <div class="tab-pane fade active show" id="Snacks" role="tabpanel">
+
+                <div class="tab-header text-center">
+                    <h3 style="color:#E57C23">Snacks</h3>
+                </div>
+
+                <div class="row gy-5">
+
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
+                        
+                        @if (Model.user_Type == 3 || Model.user_Type == 0)
+                        {
+                            <img src="~/img/Hohos.jpg" alt="room image" width="350px" height="350px" />
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[0][2]</strong></h4>
+                        }
+                        else
+                        {
+                            <a asp-page="/Products/Prod_Prof_O_E" asp-route-productID="2">
+                                <img src="~/img/Hohos.jpg" alt="room image" width="350px" height="350px" />
+                                <br />
+                                <br />
+                                <h4 style="color: black;"><strong>@Model.productTable.Rows[0][2]</strong></h4>
+                            </a>
+                        }
+                        
+
+                        <p style="color: #C07F00; font-size: 25px;">
+                            <strong>@Model.productTable.Rows[0][1] L.E.</strong>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
+                        @if (Model.user_Type == 3 || Model.user_Type == 0)
+                        {
+                            <img src="~/img/Cheetos.jpg" alt="room image" width="350px" height="350px"/>
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[1][2]</strong></h4>
+                        }
+                        else
+                        {
+                            <a asp-page="/Products/Prod_Prof_O_E" asp-route-productID="2">
+                                <img src="~/img/Cheetos.jpg" alt="room image" width="350px" height="350px" />
+                                <br />
+                                <br />
+                                <h4 style="color: black;"><strong>@Model.productTable.Rows[1][2]</strong></h4>
+                            </a>
+                        }
+                        <p style="color: #C07F00; font-size: 25px;">
+                            <strong>@Model.productTable.Rows[1][1] L.E.</strong>
+                        </p>
+                        
+                    </div>
+
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
+
+                        @if (Model.user_Type == 3 || Model.user_Type == 0)
+                        {
+                            <img src="~/img/Croissant.jpg" alt="room image" width="350px" height="350px" />
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[2][2]</strong></h4>
+                        }
+                        else
+                        {
+                            <a asp-page="/Products/Prod_Prof_O_E" asp-route-productID="2">
+                                <img src="~/img/Croissant.jpg" alt="room image" width="350px" height="350px" />
+                                <br />
+                                <br />
+                                <h4 style="color: black;"><strong>@Model.productTable.Rows[2][2]</strong></h4>
+                            </a>
+                        }
+
+                        <a asp-page="/Products/Prod_Prof_O_E" asp-route-productID="3">
+                           
+                        </a>
+                        
+                        <p style="color: #C07F00; font-size: 25px;">
+                            <strong>@Model.productTable.Rows[2][1] L.E.</strong>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
+                        @if (Model.user_Type == 3 || Model.user_Type == 0)
+                        {
+                            <img src="~/img/Lambada.jpg" alt="room image" width="350px" height="350px" />
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[3][2]</strong></h4>
+                        }
+                        else
+                        {
+                            <a asp-page="/Products/Prod_Prof_O_E" asp-route-productID="2">
+                                <img src="~/img/Lambada.jpg" alt="room image" width="350px" height="350px" />
+                                <br />
+                                <br />
+                                <h4 style="color: black;"><strong>@Model.productTable.Rows[3][2]</strong></h4>
+                            </a>
+                        }
+                        
+                        <p style="color: #C07F00; font-size: 25px;">
+                            <strong>@Model.productTable.Rows[3][1] L.E.</strong>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
+                        @if (Model.user_Type == 3 || Model.user_Type == 0)
+                        {
+                            <img src="~/img/Indomie.jpg" alt="room image" width="350px" height="350px" />
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[4][2]</strong></h4>
+                        }
+                        else
+                        {
+                            <a asp-page="/Products/Prod_Prof_O_E" asp-route-productID="2">
+                                <img src="~/img/Indomie.jpg" alt="room image" width="350px" height="350px" />
+                                <br />
+                                <br />
+                                <h4 style="color: black;"><strong>@Model.productTable.Rows[4][2]</strong></h4>
+                            </a>
+                        }
+                        
+                        <p style="color: #C07F00; font-size: 25px;">
+                            <strong>@Model.productTable.Rows[4][1] L.E.</strong>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
+                        @if (Model.user_Type == 3 || Model.user_Type == 0)
+                        {
+                            <img src="~/img/Galaxy.jpg" alt="room image" width="350px" height="350px" />
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[5][2]</strong></h4>
+                        }
+                        else
+                        {
+                            <a asp-page="/Products/Prod_Prof_O_E" asp-route-productID="2">
+                                <img src="~/img/Galaxy.jpg" alt="room image" width="350px" height="350px" />
+                                <br />
+                                <br />
+                                <h4 style="color: black;"><strong>@Model.productTable.Rows[5][2]</strong></h4>
+                            </a>
+                        }
+                        <p style="color: #C07F00; font-size: 25px;">
+                            <strong>@Model.productTable.Rows[5][1] L.E.</strong>
+                        </p>
+                    </div>
+
+                </div>
+            </div><!-- End Snacks Menu Content -->
+
+            <div class="tab-pane fade" id="Drinks" role="tabpanel">
+
+                <div class="tab-header text-center">
+                    <h3 style="color:#E57C23">Drinks</h3>
+                </div>
+
+                <div class="row gy-5">
+
+                    <div class="col-lg-4 menu-item">
+                        
+                        <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
+                        @if (Model.user_Type == 3 || Model.user_Type == 0)
+                        {
+                            <img src="~/img/Seven.jpg" alt="room image" width="350px" height="350px" />
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[6][2]</strong></h4>
+                        }
+                        else
+                        {
+                            <a asp-page="/Products/Prod_Prof_O_E" asp-route-productID="2">
+                                <img src="~/img/Seven.jpg" alt="room image" width="350px" height="350px" />
+                                <br />
+                                <br />
+                                <h4 style="color: black;"><strong>@Model.productTable.Rows[6][2]</strong></h4>
+                            </a>
+                        }
+
+
+                        <p style="color: #C07F00; font-size: 25px;">
+                            <strong>@Model.productTable.Rows[6][1] L.E.</strong>
+                        </p>
+                    </div><!-- Menu Item -->
+
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
+                        @if (Model.user_Type == 3 || Model.user_Type == 0)
+                        {
+                            <img src="~/img/Sting.jpg" alt="room image" width="350px" height="350px" />
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[7][2]</strong></h4>
+                        }
+                        else
+                        {
+                            <a asp-page="/Products/Prod_Prof_O_E" asp-route-productID="2">
+                                <img src="~/img/Sting.jpg" alt="room image" width="350px" height="350px" />
+                                <br />
+                                <br />
+                                <h4 style="color: black;"><strong>@Model.productTable.Rows[7][2]</strong></h4>
+                            </a>
+                        }
+                        
+                        <p style="color: #C07F00; font-size: 25px;">
+                            <strong>@Model.productTable.Rows[7][1] L.E.</strong>
+                        </p>
+                    </div><!-- Menu Item -->
+
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
+                        @if (Model.user_Type == 3 || Model.user_Type == 0)
+                        {
+                            <img src="~/img/RedBull.jpg" alt="room image" width="350px" height="350px" />
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[8][2]</strong></h4>
+                        }
+                        else
+                        {
+                            <a asp-page="/Products/Prod_Prof_O_E" asp-route-productID="2">
+                                <img src="~/img/RedBull.jpg" alt="room image" width="350px" height="350px" />
+                                <br />
+                                <br />
+                                <h4 style="color: black;"><strong>@Model.productTable.Rows[8][2]</strong></h4>
+                            </a>
+                        }
+                        
+                        <p style="color: #C07F00; font-size: 25px;">
+                            <strong>@Model.productTable.Rows[8][1] L.E.</strong>
+                        </p>
+
+                    </div><!-- Menu Item -->
+
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
+                        @if (Model.user_Type == 3 || Model.user_Type == 0)
+                        {
+                            <img src="~/img/Coffee.jpg" alt="room image" width="350px" height="350px" />
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[9][2]</strong></h4>
+                        }
+                        else
+                        {
+                            <a asp-page="/Products/Prod_Prof_O_E" asp-route-productID="2">
+                                <img src="~/img/Coffee.jpg" alt="room image" width="350px" height="350px" />
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[9][2]</strong></h4>
+                            </a>
+                        }
+
+                        
+                        <p style="color: #C07F00; font-size: 25px;">
+                            <strong>@Model.productTable.Rows[9][1] L.E.</strong>
+                        </p>
+                    </div><!-- Menu Item -->
+
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
+                        @if (Model.user_Type == 3 || Model.user_Type == 0)
+                        {
+                            <img src="~/img/Tea.jpg" alt="room image" width="350px" height="350px" />
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[10][2]</strong></h4>
+                        }
+                        else
+                        {
+                            <a asp-page="/Products/Prod_Prof_O_E" asp-route-productID="2">
+                                <img src="~/img/Tea.jpg" alt="room image" width="350px" height="350px" />
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[10][2]</strong></h4>
+                            </a>
+                        }
+                        
+                        <p style="color: #C07F00; font-size: 25px;">
+                            <strong>@Model.productTable.Rows[10][1] L.E.</strong>
+                        </p>
+                    </div><!-- Menu Item -->
+
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
+                        @if (Model.user_Type == 3 || Model.user_Type == 0)
+                        {
+                            <img src="~/img/Pepsi.jpg" alt="room image" width="350px" height="350px" />
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[11][2]</strong></h4>
+                        }
+                        else
+                        {
+                            <a asp-page="/Products/Prod_Prof_O_E" asp-route-productID="2">
+                                <img src="~/img/Pepsi.jpg" alt="room image" width="350px" height="350px" />
+                                <br />
+                                <br />
+                                <h4 style="color: black;"><strong>@Model.productTable.Rows[11][2]</strong></h4>
+                            </a>
+                        }
+                        
+                        <p style="color: #C07F00; font-size: 25px;">
+                            <strong>@Model.productTable.Rows[11][1] L.E.</strong>
+                        </p>
+                    </div><!-- Menu Item -->
+
+                </div>
+            </div><!-- End Drinks Menu Content -->
+
+            <div class="tab-pane fade" id="Stationery" role="tabpanel">
+
+                <div class="tab-header text-center">
+ 
+                    <h3 style="color:#E57C23">Stationery</h3>
+                </div>
+
+                <div class="row gy-5">
+
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
+                         @if (Model.user_Type == 3 || Model.user_Type == 0)
+                        {
+                            <img src="~/img/Pen.jpg" alt="room image" width="350px" height="350px" />
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[12][2]</strong></h4>
+                        }
+                        else
+                        {
+                            <a asp-page="/Products/Prod_Prof_O_E" asp-route-productID="2">
+                                <img src="~/img/Pen.jpg" alt="room image"  width="350px" height="350px" />
+                                <br />
+                                <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[12][2]</strong></h4>
+                            </a>
+                        }
+                        
+                        <p style="color: #C07F00; font-size: 25px;">
+                            <strong>@Model.productTable.Rows[12][1] L.E.</strong>
+                        </p>
+                    </div><!-- Menu Item -->
+
+                    <div class="col-lg-4 menu-item">
+                        
+                        <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
+                         @if (Model.user_Type == 3 || Model.user_Type == 0)
+                        {
+                            <img src="~/img/Ruler.jpg" alt="room image" width="350px" height="350px" />
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[13][2]</strong></h4>
+                        }
+                        else
+                        {
+                            <a asp-page="/Products/Prod_Prof_O_E" asp-route-productID="2">
+                                <img src="~/img/Ruler.jpg" alt="room image" width="350px" height="350px" />
+                                <br />
+                                <br />
+                                <h4 style="color: black;"><strong>@Model.productTable.Rows[13][2]</strong></h4>
+                            </a>
+                        }
+                        
+                        <p style="color: #C07F00; font-size: 25px;">
+                            <strong>@Model.productTable.Rows[13][1] L.E.</strong>
+                        </p>
+                    </div><!-- Menu Item -->
+
+                    <div class="col-lg-4 menu-item">
+                        <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
+                        @if (Model.user_Type == 3 || Model.user_Type == 0)
+                        {
+                            <img src="~/img/Notebook.jpg" alt="room image" width="350px" height="350px" />
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[14][2]</strong></h4>
+                        }
+                        else
+                        {
+                            <a asp-page="/Products/Prod_Prof_O_E" asp-route-productID="2">
+                                <img src="~/img/Notebook.jpg" alt="room image" width="350px" height="350px" />
+                            <br />
+                            <br />
+                            <h4 style="color: black;"><strong>@Model.productTable.Rows[14][2]</strong></h4>
+                            </a>
+                        }
+                        
+                        <p style="color: #C07F00; font-size: 25px;">
+                            <strong>@Model.productTable.Rows[14][1] L.E.</strong>.
+                        </p>
+                    </div><!-- Menu Item -->
+
+                    </div><!-- Menu Item -->
+
+                </div>
+            </div><!-- End Lunch Menu Content -->
+        </div>
+
+    </div>
+</section>

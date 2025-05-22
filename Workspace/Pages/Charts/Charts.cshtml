@@ -1,0 +1,374 @@
+﻿@page
+@{
+   Layout = "_LayoutAdmin";
+
+}
+@model Workspace.Pages.Charts.ChartsModel
+@{
+    ViewData["Title"] = "Charts";
+}
+
+@*Javascript for converting to PDF
+*@<script>
+    function downloadAsPDF(){
+        var element = document.getElementById('Charts');
+        var opt = {
+          margin:       0,
+          filename:     'Charts.pdf',
+          image:        { type: 'jpeg', quality: 0.98 },
+          html2canvas:  { scale: 2 },
+          jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+        html2pdf(element, opt);
+    }
+    
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        var MonthlyCustomersctx = document.getElementById('MonthlyNewCustomers');
+        var MonthlyCustomersData = @Html.Raw(Model.MonthlyCustomersChartJson);
+        MonthlyCustomersData.options = {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    bottom: 80
+                }
+            }
+        };
+        var MonthlyCustomersChart = new Chart(MonthlyCustomersctx, MonthlyCustomersData);
+
+        //
+        //
+
+        var TodayPiectx = document.getElementById('TodayPieChart');
+        var TodayPieData = @Html.Raw(Model.TodayChartJson);
+        TodayPieData.options = {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    bottom: 80
+                }
+            }
+        };
+        var TodayPieChart = new Chart(TodayPiectx, TodayPieData);
+
+        var MonthPiectx = document.getElementById('MonthPieChart');
+        var MonthPieData = @Html.Raw(Model.MonthChartJson);
+        MonthPieData.options = {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    bottom: 80
+                }
+            }
+        };
+        var MonthPieChart = new Chart(MonthPiectx, MonthPieData);
+
+        //
+        //
+
+        var AllTimePiectx = document.getElementById('AllTimePieChart');
+        var AllTimePieData = @Html.Raw(Model.AllTimeChartJson);
+        AllTimePieData.options = {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    bottom: 80
+                }
+            }
+        };
+        var AllTimePieChart = new Chart(AllTimePiectx, AllTimePieData);
+
+        //
+        //
+
+        var TodayBarctx = document.getElementById('TodayBarChart');
+        var TodayBarchartData = @Html.Raw(Model.TodayOccupancyChartJson);
+        TodayBarchartData.options = {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    bottom: 80
+                }
+            }
+        };
+        var TodayBarChart = new Chart(TodayBarctx, TodayBarchartData);
+
+        var YesterdayBarCtx = document.getElementById('YesterdayBarChart');
+        var YesterdayBarChartData = @Html.Raw(Model.YesterdayOccupancyChartJson);
+        YesterdayBarChartData.options = {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    bottom: 80
+                }
+            }
+        };
+        var YesterdayBarChart = new Chart(YesterdayBarCtx, YesterdayBarChartData);
+
+        //
+        //
+
+        var AllTimeBarCtx = document.getElementById('AllTimeBarChart');
+        var AllTimeBarChartData = @Html.Raw(Model.AllTimeOccupancyChartJson);
+        AllTimeBarChartData.options = {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    bottom: 80
+                }
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        };
+        var AllTimeBarChart = new Chart(AllTimeBarCtx, AllTimeBarChartData);
+
+        //
+        //
+
+        var EventStackedBarCtx = document.getElementById('EventStackedBarChart');
+        var EventStackedBarChartData = @Html.Raw(Model.EventRevAttendChartJson);
+
+        EventStackedBarChartData.options = Object.assign({}, EventStackedBarChartData.options, {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    bottom: 80
+                }
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        });
+        var EventStackedBarChart = new Chart(EventStackedBarCtx, EventStackedBarChartData);
+    });
+</script>
+
+<style>
+
+    body {
+        position: relative;
+        min-height: 100vh;
+        background-color: #f9f9f9;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #chart-section {
+        background-color: #f4f2ea;
+        padding: 20px;
+        overflow: hidden;
+        margin-bottom: 50px;
+    }
+
+    .chart-container {
+        position: relative;
+        height: 710px;
+        margin-bottom: 20px;
+        padding: 50px;
+        background-color: #f7f5ed;
+        border-radius: 10px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .chart-container-sales {
+        position: relative;
+        height: 710px;
+        margin-bottom: 20px;
+        padding: 50px;
+        background-color: #f9f7f0;
+        border-radius: 10px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        overflow: hidden;
+        padding-bottom: 100px;
+    }
+
+    .chart-container-occupance {
+        position: relative;
+        height: 710px;
+        margin-bottom: 20px;
+        padding: 50px;
+        background-color: #f9f7f0;
+        border-radius: 10px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0,0.1);
+        text-align: center;
+        overflow: hidden;
+        padding-bottom: 100px;
+    }
+
+    .chart-container-event {
+        position: relative;
+        height: 710px;
+        margin-bottom: 20px;
+        padding: 50px;
+        background-color: #f7f5ed;
+        border-radius: 10px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        overflow: hidden;
+        padding-bottom: 100px;
+    }
+
+    .chart-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+
+   .chart-total {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+       
+    }
+
+    .chart-total-Event {
+        position: absolute;
+        bottom: 24px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        font-size: 24px;
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+    }
+
+    .todayString{
+        position: absolute;
+        bottom: 35px;
+        left: 180px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .weekString{
+        position: absolute;
+        bottom: 35px;
+        left: 600px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .monthString {
+        position: absolute;
+        bottom: 35px;
+        left: 1000px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+
+</style>
+<section id="Charts">
+    <div id="chart-section">
+        <div class="col-sm-12 col-md-12">
+            <div class="chart-container" style="padding-bottom: 100px;">
+                <h1 class="chart-title" style="margin-bottom: 50px;">New Customers - Last 30 Days</h1>
+                <canvas id="MonthlyNewCustomers"></canvas>
+                <div class="row">
+                    <div class="col-lg-md-sm-4">
+                        <div class="todayString">@Model.TodayNewCustomersString</div>
+                    </div>
+                    <div class="col-lg-md-sm-4">
+                        <div class="weekString">@Model.WeeklyNewCustomersString</div>
+                    </div>
+                    <div class="col-lg-md-sm-4">
+                        <div class="monthString">@Model.MonthlyNewCustomersString</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="chart-container-sales">
+                    <h1 class="chart-title" style="margin-bottom: 50px;">Room Sales - This Day</h1>
+                    <canvas id="TodayPieChart"></canvas>
+                    <div class="chart-total"><p></p>@Model.TodayTotalMoneyString</div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <div class="chart-container-sales">
+                    <h1 class="chart-title" style="margin-bottom: 50px;">Room Sales - This Month</h1>
+                    <canvas id="MonthPieChart"></canvas>
+                    <div class="chart-total"><p></p>@Model.ThisMonthTotalMoneyString</div>
+
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+                <div class="chart-container-sales">
+                    <h1 class="chart-title" style="margin-bottom: 50px;">Room Sales - All Time</h1>
+                    <canvas id="AllTimePieChart"></canvas>
+                    <div class="chart-total">@Model.AllTimeTotalMoneyString</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <div class="chart-container-occupance">
+                        <h1 class="chart-title" style="margin-bottom: 50px;">Today's Occupance Rate</h1>
+                        <canvas id="TodayBarChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-4">
+                    <div class="chart-container-occupance">
+                        <h1 class="chart-title" style="margin-bottom: 50px;">Yesterday's Occupance Rate</h1>
+                        <canvas id="YesterdayBarChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-4">
+                    <div class="chart-container-occupance">
+                        <h1 class="chart-title" style="margin-bottom: 50px;">Average Daily Occupancy</h1>
+                        <canvas id="AllTimeBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-12">
+                <div class="chart-container-event">
+                    <h1 class="chart-title" style="margin-bottom: 50px;">Event Revenue and Attendance (30 Days Rate)</h1>
+                    <canvas id="EventStackedBarChart"></canvas>
+                    <div class="chart-total-Event">@Model.EventTotalMoneyString</div>
+                    <div class="chart-total-Event" style="margin-bottom: -25px;">@Model.EventTotalAttendantsString</div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<section id="downloadButton" style="text-align:center">
+    <button class="btn btn-danger" onclick="downloadAsPDF()" style="height:70px; width:250px;"><strong>Download as PDF</strong></button>
+</section>
+
+
+

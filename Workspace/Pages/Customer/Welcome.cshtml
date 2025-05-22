@@ -1,0 +1,208 @@
+﻿@page
+@model Workspace.Pages.Customer.WelcomeModel
+@{
+    ViewData["Title"] = "Welcome";
+}
+<section id="hero" class="">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <div class="carousel-inner" role="listbox">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item" style="background-image: url(assets/img/slide/slide-1.jpg)">
+                <div class="carousel-container">
+                    <div class="container">
+                        <h2 class="animate__animated animate__fadeInDown">Welcome @Model.u <span> </span></h2>
+                        <p class="animate__animated animate__fadeInUp">"Welcome to Creative Zone, where inspiration meets productivity. Experience the future of work today in our innovative and inspiring workspace community."</p>
+                        <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg)">
+                <div class="carousel-container">
+                    <div class="container">
+                        <h2 class="animate__animated animate__fadeInDown">Welcome  <span>@Model.u </span></h2>
+                        <p class="animate__animated animate__fadeInUp">"Welcome to Creative Zone, where inspiration meets productivity. Experience the future of work today in our innovative and inspiring workspace community."</p>
+                        <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-3.jpg)">
+                <div class="carousel-container">
+                    <div class="container">
+                        <h2 class="animate__animated animate__fadeInDown">Welcome <span>@Model.u</span></h2>
+                        <p class="animate__animated animate__fadeInUp">"Welcome to Creative Zone, where inspiration meets productivity. Experience the future of work today in our innovative and inspiring workspace community."</p>
+                        <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+    </div>
+</section>
+
+<section id="services" class="services">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Our Services</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 d-flex align-items-stretch " data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box iconbox-blue">
+                    <img src="~/img/Rooms.jpg" alt="room image" width="80%" height="auto" style="margin: -10px -10px;" />
+                    <br />
+                    <br />
+                    <h4><a href="/MyTasks/Rooms">Rooms</a></h4>
+                    <p>"Elevate your work experience with our stunning rooms. Find your match!"</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box iconbox-orange ">
+                    <img src="~/img/Subscription.jpg" alt="room image" width="80%" height="auto" style="margin: -10px -10px;" />
+                    <br />
+                    <br />
+                    <h4><a href="/MyTasks/Subscription">Subscriptions</a></h4>
+                    <p>"Boost productivity with our exclusive subscription service. Join now!"</p>
+                </div>
+            </div>
+
+
+            <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box iconbox-yellow">
+                    <img src="~/img/Products.jpg" alt="room image" width="80%" height="auto" style="margin: -10px -10px;" />
+                    <br />
+                    <br />
+                    <h4><a href="/Products/Products">Products</a></h4>
+                    <p>"Enhance your lifestyle with our premium products. Discover now!"</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box iconbox-red">
+                    <img src="~/img/Events.jpg" alt="room image" width="80%" height="auto" style="margin: -10px -10px;" />
+                    <br />
+                    <br />
+                    <h4><a href="/MyTasks/Events">Events</a></h4>
+                    <p>"Experience excitement and inspiration with our events. Attend now!"</p>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+</section>
+<section id="about" class="about">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>About Us</h2>
+
+            <p>We are Creative Zone, a dynamic workspace community that empowers professionals to achieve their goals. Join us today and discover a stylish and functional workspace with premium amenities, cutting-edge technology, and a supportive community of like-minded individuals. Experience a new way to work that is both inspiring and rewarding</p>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-lg-6 order-1 order-lg-2">
+                <img src="assets/img/about.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                <h3>Our Vision</h3>
+                <p class="fst-italic" style="text-align: justify;">
+                    Our vision at Creative Zone is to create a workspace community that inspires
+                    and empowers professionals to achieve their full potential.
+                    We believe that work should be more than just a job, and that the right environment can foster creativity,
+                    innovation, and personal and professional growth. Our goal is to provide a dynamic and supportive
+                    community where professionals can collaborate, network, and learn together. We strive to
+                    create a space where innovation meets productivity, and where our members can thrive both
+                    personally and professionally. Join us today and experience a new way to work that is both
+                    inspiring and rewarding.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section id="contact" class="contact">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Contact US</h2>
+            <p>Need help finding the perfect workspace solution? Our team is here to provide exceptional customer service and support. Contact us by phone, email, or by filling out the form below. Let us help you achieve your goals at Creative Zone.</p>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-5 d-flex align-items-stretch">
+                <div class="info">
+                    <div class="address">
+                        <i class="bi bi-geo-alt"></i>
+                        <h4>Location:</h4>
+                        <p>Zewail City For Science & Technology</p>
+                    </div>
+
+                    <div class="email">
+                        <i class="bi bi-envelope"></i>
+                        <h4>Email:</h4>
+                        <p>s-youssef.elmagd@Zewailcity.edu.eg</p>
+                    </div>
+
+                    <div class="phone">
+                        <i class="bi bi-phone"></i>
+                        <h4>Call:</h4>
+                        <p>+201061179858</p>
+                    </div>
+
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen=""></iframe>
+                </div>
+
+            </div>
+
+            <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+                <form action="" method="" role="form" class="php-email-form">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Your Name</label>
+                            <input type="text" name="name" class="form-control" id="name" required="">
+                        </div>
+                        <div class="form-group col-md-6 mt-3 mt-md-0">
+                            <label for="name">Your Email</label>
+                            <input type="email" class="form-control" name="email" id="email" required="">
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="name">Subject</label>
+                        <input type="text" class="form-control" name="subject" id="subject" required="">
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="name">Message</label>
+                        <textarea class="form-control" name="message" id="message" rows="10" required=""></textarea>
+                    </div>
+                    <button type="submit" onclick="sendEmail()" class="btn text-center" id="button-submit">Send Message</button>
+                    
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</section>

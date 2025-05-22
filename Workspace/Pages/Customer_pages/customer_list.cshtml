@@ -1,0 +1,156 @@
+﻿@page
+@model Workspace.Pages.Customer_pages.customer_listModel
+@{
+    ViewData["Title"] = "Customers";
+}
+<!DOCTYPE html>
+<head>
+
+    <link rel="stylesheet" href="~/css/emplist_style.css" asp-append-version="true" />
+</head>
+
+
+
+
+
+<div class="search-container">
+    <form method="post">
+        <input type="text" value="" asp-for="@Model.Cust.ID" placeholder="Search by Cust.ID,Name,use...">
+        <button type="submit" asp-page-handler="Search"><i class="fas fa-search"></i></button>
+    </form>
+</div>
+
+
+<div style="float:right;">
+
+    
+        <a asp-page="/employees_pages/Hire_Emp" class="add-user-btn"><i class="fas fa-user-plus"></i> Create a new customer </a>
+
+    
+
+
+</div>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+<div class="container mt-3 mb-4">
+    <div class="col-lg-9 mt-4 mt-lg-0">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
+                    <table class="table manage-candidates-top mb-0">
+                        <thead>
+                            <tr>
+                                <th>Customer's name</th>
+                                <th class="text-center">current Status</th>
+
+                                <th class="action text-left">ID</th>
+
+                                @*<th class="action text-left">Add a new session</th>*@
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (@Model.dt.Rows.Count == 0)
+                            {
+                                <tr>
+                                    <td>
+                                        <h6 class="text-danger">@Model.MsgNotFound</h6>
+                                </tr>
+
+
+                            }
+
+
+
+                            @for (int x = 0; x < @Model.dt.Rows.Count; x++)
+                            {
+                                <tr class="candidates-list">
+                                    <td class="title">
+                                        <div class="thumb">
+                                            <img class="img-fluid" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="">
+                                        </div>
+                                        <div class="candidate-list-details">
+                                            <div class="candidate-list-info">
+                                                <div class="candidate-list-title">
+                                                    <h5 style="color:navy">@Model.dt.Rows[x][1] @Model.dt.Rows[x][2] </h5>   @*NAME*@
+                                                </div>
+
+                                                <div class="candidate-list-option">
+                                                    <ul class="list-unstyled">
+                              
+
+                                                         <li><i class="fas fa-phone fa-Bounce "></i>@Model.dt.Rows[x][6]</li>
+
+                                                        
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    @if ((int)Model.dt.Rows[x][10] == 1)
+                                    {
+                                        <td class="candidate-list-favourite-time text-center">
+                                            @*the heart icon*@
+                                            <span class="candidate-list-time order-1" style="color:forestgreen">Active(currently in a Room)</span>
+
+                                        </td>
+                                    }else{  <td class="candidate-list-favourite-time text-center">
+                                            @*the heart icon*@
+                                            <span class="candidate-list-time order-1">InActive</span>
+
+                                        </td>
+                                    }
+                                    <td>@Model.dt.Rows[x][0]</td>
+                                    <td>
+                                    <td>
+                                            @if ((int)Model.dt.Rows[x][10] == 1)
+                                            {
+
+											<li><a asp-page="/Mytasks/RoomProfile" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit" ><i class="fa-sharp fa-solid fa-ban"></i></a><span style="color:forestgreen">End Session</span></li>
+                                            }
+                                            else
+                                            {
+                                                                                                <li><a asp-page="/Mytasks/RoomProfile" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-hourglass-start"></i></a> Add a new session</li>
+
+
+                                            }
+                                            <li><a asp-page="/Customer_pages/Cust_History" asp-route-Cust="@Model.dt.Rows[x][0]" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas bi-fast-forward-circle"></i></a> view bill history</li>
+                                        <li><a asp-page="/Mytasks/RoomProfile" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a> Add/Change Subscribtion</li>
+                                        
+                                    </td>
+
+                                    <td>
+                                        <ul class="list-unstyled mb-0 d-flex justify-content-end">
+
+                                            <li><a asp-page="/Customer_pages/edit_Cust" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></li>
+                                            <li><a href="#" class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                    <br />
+                    <br />
+                    <br />
+                    <div class="text-center mt-3 mt-sm-3">
+                        <ul class="pagination justify-content-center mb-0">
+                            <li class="page-item disabled"> <span class="page-link">Prev</span> </li>
+                            <li class="page-item active" aria-current="page"><span class="page-link">1 </span> <span class="sr-only">(current)</span></li>
+
+                            <li class="page-item"> <a class="page-link" href="#">Next</a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

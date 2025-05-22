@@ -1,0 +1,54 @@
+﻿@page
+@model Workspace.Pages.Customer.WelcomeModel
+@{
+}
+<section id="hero" class="">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <div class="carousel-inner" role="listbox">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item" style="background-image: url(assets/img/slide/slide-1.jpg)">
+                <div class="carousel-container">
+                    <div class="container">
+                        <h2 class="animate__animated animate__fadeInDown">Welcome @Model.u <span> </span></h2>
+                        <p class="animate__animated animate__fadeInUp">"Welcome to Creative Zone, where inspiration meets productivity. Experience the future of work today in our innovative and inspiring workspace community."</p>
+                        <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg)">
+                <div class="carousel-container">
+                    <div class="container">
+                        <h2 class="animate__animated animate__fadeInDown">Welcome  <span>@Model.u </span></h2>
+                        <p class="animate__animated animate__fadeInUp">"Welcome to Creative Zone, where inspiration meets productivity. Experience the future of work today in our innovative and inspiring workspace community."</p>
+                        <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-3.jpg)">
+                <div class="carousel-container">
+                    <div class="container">
+                        <h2 class="animate__animated animate__fadeInDown">Welcome <span>@Model.u</span></h2>
+                        <p class="animate__animated animate__fadeInUp">"Welcome to Creative Zone, where inspiration meets productivity. Experience the future of work today in our innovative and inspiring workspace community."</p>
+                        <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+    </div>
+</section>

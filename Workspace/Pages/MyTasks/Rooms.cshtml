@@ -1,0 +1,587 @@
+﻿@page
+@{
+    if(Model.user_Type == 0)
+        Layout = "_Layout";
+    if (Model.user_Type == 1)
+        Layout = "_LayoutAdmin";
+    if(Model.user_Type == 2)
+        Layout = "_LayoutEmployee";
+    if (Model.user_Type == 3)
+        Layout = "_LayoutCustomer";
+}
+@model Workspace.Pages.MyTasks.RoomsModel
+@{
+    ViewData["Title"] = "Rooms";
+}
+
+@*Eyad was here*@
+<script>
+    document.querySelector("body").style.backgroundColor = "#F6F1E9";
+    document.getElementById("header").style.width = "100%";
+    document.getElementById("header").style.margin = "0";
+
+ </script>
+
+<style>
+    /* Set a fixed height for the carousel to accommodate different image heights */
+    .carousel-item {
+        height: 200px;
+    }
+
+    
+    .button_prev{
+        background-color: #C07F00;
+        width: 50px;
+        height: 34px;
+        border-radius: 50px;
+        position: absolute;
+        right: 800px;
+        display: inline;
+    }
+    .button_next {
+        background-color: #C07F00;
+        width: 50px;
+        height: 34px;
+        border-radius: 50px;
+        position: absolute;
+        right: 700px;
+    }
+
+    .card {
+/*        background-color:#FFE194;
+*/        
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    
+
+  
+</style>
+
+
+<section id="Chair" style="margin-bottom: 50px">
+    <h1 class="sectionTitle">CHAIRS</h1>
+
+    <div class="" style="padding: 50px;">
+        <div id="room-carousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Card 1 -->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px; background-image: url('@Url.Content("~/img/Pen.jpg")')">
+                               <img src="~/img/Pen.jpg" class="card-img-top" alt="Room 1" style="width: 20px;" >
+                               <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[0][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[0][3]</p>
+                                    @if (Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="1" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="1" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp" asp-route-roomID="7" class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px;">
+                                <img src="room1.jpg" class="card-img-top" alt="Room 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[1][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[1][3]</p>
+                                    @if (Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="2" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="2" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp" class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px;">
+                                <img src="room1.jpg" class="card-img-top" alt="Room 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[2][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[2][3]</p>
+                                    @if (Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="3" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="3" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp"  class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add more cards here --> 
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px;">
+                                <img src="room2.jpg" class="card-img-top" alt="Room 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[3][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[3][3]</p>
+                                    @if (Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="4" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="4" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp"  class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px;">
+                                <img src="room2.jpg" class="card-img-top" alt="Room 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[4][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[4][3]</p>
+                                    @if (Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="5" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="5" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp" asp-route-roomID="7" class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px;">
+                                <img src="room2.jpg" class="card-img-top" alt="Room 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[5][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[5][3]</p>
+                                    @if (Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="6" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="6" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp"  class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add more cards here -->
+                    </div>
+                </div>
+
+             </div>
+        </div>
+   
+            <!-- Slide buttons -->
+        
+    </div>
+    <a class="button_prev" href="#room-carousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #E8AA42; border-radius:20px;"></span>
+    </a>
+    <a class="button_next" href="#room-carousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #E8AA42;border-radius:20px;"></span>
+    </a>
+ 
+</section>
+
+<section id="VIP" style="margin-bottom: 50px">
+    <h1 class="sectionTitle">VIP ROOMS</h1>
+
+    <div class="" style="padding: 50px;">
+        <div id="room-carousel2" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Card 1 -->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px; background-image: url('@Url.Content("~/img/Pen.jpg")')">
+                                <img src="~/img/Pen.jpg" class="card-img-top" alt="Room 1" style="width: 20px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[6][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[6][3]</p>
+                                    @if(Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="7" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="7" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp"  class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px;">
+                                <img src="room1.jpg" class="card-img-top" alt="Room 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[7][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[7][3]</p>
+                                    @if (Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="8" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="8" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp"  class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px;">
+                                <img src="room1.jpg" class="card-img-top" alt="Room 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[8][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[8][3]</p>
+                                    @if (Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="9" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="9" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp"  class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add more cards here -->
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px;">
+                                <img src="room2.jpg" class="card-img-top" alt="Room 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[9][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[9][3]</p>
+                                    @if (Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="10" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="10" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp" class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px;">
+                                <img src="room2.jpg" class="card-img-top" alt="Room 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[10][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[10][3]</p>
+                                    @if (Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="11" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="11" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp"  class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px;">
+                                <img src="room2.jpg" class="card-img-top" alt="Room 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[11][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[11][3]</p>
+                                    @if (Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="12" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="12" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp"  class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add more cards here -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Slide buttons -->
+
+    </div>
+    <a class="button_prev" href="#room-carousel2" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #E8AA42; border-radius:20px;"></span>
+    </a>
+    <a class="button_next" href="#room-carousel2" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #E8AA42; border-radius:20px;"></span>
+    </a>
+
+</section>
+
+<section id="meeting" style="margin-bottom: 70px">
+    <h1 class="sectionTitle">MEETING ROOMS</h1>
+
+    <div class="" style="padding: 50px;">
+        <div id="room-carousel3" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Card 1 -->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px; background-image: url('@Url.Content("~/img/Pen.jpg")')">
+                                <img src="~/img/Pen.jpg" class="card-img-top" alt="Room 1" style="width: 20px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[12][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[12][3]</p>
+                                    @if (Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="13" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="13" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp"  class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px;">
+                                <img src="room1.jpg" class="card-img-top" alt="Room 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[13][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[13][3]</p>
+                                    @if (Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="14" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="14" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp"  class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px;">
+                                <img src="room1.jpg" class="card-img-top" alt="Room 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[14][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[14][3]</p>
+                                    @if (Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="15" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="15" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp" class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add more cards here -->
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px;">
+                                <img src="room2.jpg" class="card-img-top" alt="Room 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[15][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[15][3]</p>
+                                    @if (Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="16" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="16" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp" class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px;">
+                                <img src="room2.jpg" class="card-img-top" alt="Room 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[16][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[16][3]</p>
+                                    @if (Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="17" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="17" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp" class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card" style="padding: 10px;">
+                                <img src="room2.jpg" class="card-img-top" alt="Room 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Type: @Model.roomTable.Rows[17][1]</h5>
+                                    <p class="card-text">Cost Per Hour: @Model.roomTable.Rows[17][3]</p>
+                                    @if (Model.user_Type == 3)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="18" class="btn btn-warning">Book Now</a>
+                                    }
+                                    @if (Model.user_Type == 1 || Model.user_Type == 2)
+                                    {
+                                        <a asp-page="/MyTasks/RoomProfile" asp-route-roomID="18" class="btn btn-warning">Explore</a>
+                                    }
+                                    @if (Model.user_Type == 0)
+                                    {
+                                        <a asp-page="/LogIn/SignUp"  class="btn btn-info" style="margin-bottom:5px;">Sign Up</a>
+                                        <p style="margin: 0;"><strong>Sign Up if you want to book the room</strong></p>
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add more cards here -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Slide buttons -->
+
+    </div>
+    <a class="button_prev" href="#room-carousel3" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #E8AA42; border-radius:20px;"></span>
+    </a>
+    <a class="button_next" href="#room-carousel3" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #E8AA42; border-radius:20px;"></span>
+    </a>
+
+</section>

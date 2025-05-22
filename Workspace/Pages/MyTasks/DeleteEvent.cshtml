@@ -1,0 +1,13 @@
+﻿@page
+@model Workspace.Pages.MyTasks.DeleteEventModel
+@{
+}
+<div class="text-center">
+    <p>Are you sure that you want to delete </p>
+    <p class="text-danger">@Model.e.Title</p>
+    <form method="post">
+        <button class="btn btn-danger">Delete</button>
+        <a class="btn btn-secondary" asp-page="EventAdmin">Cancel</a>
+    </form>
+</div>
+<p style="color:red">@Model.msg</p>

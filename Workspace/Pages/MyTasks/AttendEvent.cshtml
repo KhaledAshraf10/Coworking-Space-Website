@@ -1,0 +1,38 @@
+﻿@page
+@model Workspace.Pages.MyTasks.AttendEventModel
+@{
+    ViewData["Title"] = "Attend Event";
+}
+
+<script>
+    document.querySelector("body").style.backgroundColor = "#F6F1E9";
+    document.getElementById("header").style.width = "100%";
+    document.getElementById("header").style.margin = "0";
+</script>
+@*comment form khaled*@
+@*comment form khaled*@
+
+<section class="vh-100" id="Login">
+
+    <div class="row">
+        <div class="col-lg-6">
+
+            <div class="card-body">
+                <h2 class="card-title">Event Name : @Model.dt.Rows[0][2]</h2>
+                <p class="card-text">We're thrilled to invite you to join us at Room @Model.dt.Rows[0][4] on @Model.dt.Rows[0][5]. The cost for this event is @Model.dt.Rows[0][3] $</p>
+                
+                <form method="post">
+                    <br>
+                    <button type="submit" class="btn btn-primary">Attend</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            @*mafrod hna a3rd soura 3la 7asb room ely howa 5traha if condtion normal or VIP or meeting*@
+            <img src="~/img/7.jfif" alt="Room Image" width="500" height="500">
+        </div>
+        <p style="color:red">@Model.msg</p>
+    </div>
+    
+</section>
+

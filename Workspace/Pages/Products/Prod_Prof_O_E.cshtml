@@ -1,0 +1,107 @@
+﻿@page
+
+@{
+    if (Model.user_Type == 1)
+        Layout = "_LayoutAdmin";
+    if (Model.user_Type == 2)
+        Layout = "_LayoutEmployee";
+}
+@model Workspace.Pages.Products.Prod_Prof_O_EModel
+@{
+    ViewData["Title"] = "Product Info";
+}
+
+
+<script>
+    document.querySelector("body").style.backgroundColor = "#F6F1E9";
+    document.getElementById("header").style.width = "100%";
+    document.getElementById("header").style.margin = "0";
+</script>
+
+<style>
+    .confirm{
+        height: 40px;
+        width: 210px;
+        
+    }
+
+    .back{
+        height: 40px;
+        width: 210px;
+        color: white;
+    }
+
+    .Change:hover{
+        color: #444444;
+    }
+</style>
+
+<section id="Product">
+
+    <div class="row">
+        <div class="col-lg-6">
+            <h4 style="font-size: 40px; text-align: center;"><strong>@Model.Product_Table.Rows[0][2]</strong></h4> <br />
+            
+            <p style="font-size: 30px;"><strong>Quantity: <span style ="font-size: 25px; color: #E57C23">@Model.Product_Table.Rows[0][3]</span></strong></p>
+            <p style="font-size: 30px;"><strong>Price: <span style="font-size: 25px; color: #E57C23">@Model.Product_Table.Rows[0][1] L.E.</span></strong></p>
+
+            <form class="form-inline"method="post">
+                <h2 style="font-size: 30px;"><strong>Edit Product: </strong> </h2><br />
+
+                <div class="form-group mx-sm-3 mb-4">
+                    <label for="inputPassword2" class="sr-only" style="color:#83764F; font-size: 18px;"><strong>Product Number</strong></label>
+                    <input type="text" class="input" name="CurrentProduct" value="@Model.Product_ID" readonly>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="staticEmail2" class="sr-only" style="color:#83764F; font-size: 18px; margin-left: 17px;"><strong>Quantity</strong></label>
+                    <input type="text" class="input" name="CurrentQuantity">
+                </div>
+
+                <div class="form-group mx-sm-3 mb-4">
+                    <label for="inputPassword2" class="sr-only" style="color:#83764F; font-size: 18px; margin-left: 11px;"><strong>Price</strong></label>
+                    <input type="text" class="input" name="CurrentPrice">
+                </div>
+
+
+                <button class="btn btn-primary confirm" formmethod="post" style="margin-top: 50px;"><span class="Change">Confirm Change</span></button>
+                <a asp-page="/Products/Products" class="btn btn-warning back" style="margin-top: 50px;">Explore Products</a>
+
+            </form>
+
+        </div>
+        <div class="col-lg-6">
+            <img src="~/img/GoodDay.jpg" class="menu-img img-fluid" alt="Here Is The Image Of The Product">
+        </div>
+    </div>
+
+
+
+</section>
+
+
+
+
+<style>
+    #Product {
+        margin-bottom: 100px;
+    }
+
+    .input {
+        width: 20%;
+        display: inline;
+        border: solid;
+        position: absolute;
+        left: 300px;
+    }
+
+    .remove {
+        margin: 20px;
+        margin-top: 70px;
+    }
+
+    .confirm {
+        margin: 20px;
+        margin-top: 70px;
+    }
+</style>

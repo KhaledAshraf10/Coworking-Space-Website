@@ -1,0 +1,47 @@
+﻿@page "/Pages/LogIn/Login"
+@model Workspace.Pages.LogIn.LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<script>
+    document.querySelector("body").style.backgroundColor = "#F6F1E9";
+    document.getElementById("header").style.width = "100%";
+    document.getElementById("header").style.margin = "0";
+</script>
+
+<section class="vh-100" id="Login">
+        <div class="row">
+            <div class="col-lg-6">
+
+                    <form class="Form" method="post">
+
+                        <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
+
+                        <div class="form-outline mb-4">
+                    <input type="text" asp-for=@Model.u.UserName placeholder="Username" id="form2Example18" class="form-control form-control-lg" required="" />
+                            <label class="form-label" for="form2Example18">Email address</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                    <input type="password" asp-for=@Model.u.Password placeholder="Password" id="form2Example28" class="form-control form-control-lg" required="" />
+                            <label class="form-label" for="form2Example28">Password</label>
+                        </div>
+
+                        <button class="btn btn-warning btn-lg" type="submit">Login</a></button>
+                        <p><a class="text-muted" style="">Forgot password?</a></p>
+                        <span>Don't have an account? </span>
+                        <button>
+                            <a asp-page="/LogIn/SignUp" class="link-info">Register here</a>
+                        </button>
+
+                    </form>
+
+
+            </div>
+            <div class="col-lg-6">
+                <img src="~/Images/Study.jpg" alt="Login image" class="studyImage">
+            </div>
+        </div>
+</section>
