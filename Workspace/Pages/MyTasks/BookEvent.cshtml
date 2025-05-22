@@ -1,0 +1,66 @@
+﻿@page
+@model Workspace.Pages.MyTasks.BookEventModel
+@{
+    ViewData["Title"] = "Book Event";
+}
+
+<script>
+    document.querySelector("body").style.backgroundColor = "#F6F1E9";
+    document.getElementById("header").style.width = "100%";
+    document.getElementById("header").style.margin = "0";
+</script>
+
+<section class="vh-100" id="Login">
+    <div class="row">
+        <div class="col-lg-6">
+
+            <div class="card-body">
+                <h2 class="card-title">Event Room</h2>
+
+                
+                <form method="post">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Event Name</label>
+                            <input type="text" class="form-control" asp-for=@Model.e.Title required ="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Cost</label>
+                            <input type="number" class="form-control" asp-for=@Model.e.Cost required="">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Number Of Attendes</label>
+                            <input type="number" class="form-control" asp-for=@Model.e.NUM_Attendes required="">
+                        </div>
+                    </div>
+                    
+                    
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="date-input">Date</label>
+                                <input type="date" id="date-input" asp-for=@Model.e.Time class="form-control" required ="">
+
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Book Now</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            @*mafrod hna a3rd soura 3la 7asb room ely howa 5traha if condtion normal or VIP or meeting*@
+           
+        </div>
+    </div>
+    <p style="color:red">@Model.msg</p>
+</section>

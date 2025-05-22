@@ -1,0 +1,73 @@
+﻿@page
+@model Workspace.Pages.MyTasks.Subscription_ProfileModel
+@{
+    ViewData["Title"] = "Subscription Info";
+}
+
+<script>
+    document.querySelector("body").style.backgroundColor = "#F6F1E9";
+    document.getElementById("header").style.width = "100%";
+    document.getElementById("header").style.margin = "0";
+</script>
+
+<section id="Subscription_Profile">
+    <div class="row">
+        <div class="col-lg-6">
+            <h4>VIP Package</h4>
+
+            <p class="price">
+                1200 L.E.
+            </p>
+
+
+            <form class="form-inline" style="margin-top: 100px;">   
+
+                <div class="form-group mx-sm-3 mb-4">
+                    <label for="inputPassword2" class="sr-only">Price</label>
+                    <input type="text" class="input" value="1200 L.E.">
+                </div>
+
+                <button class="btn btn-danger remove" style="height: 55px; width: 150px;">
+                    Remove Package
+                </button>
+
+                <button class="btn btn-primary confirm" style="height: 55px; width: 150px;">Apply Change</button>
+            </form>
+
+        </div>
+        <div class="col-lg-6">
+            <img src="~/img/VIP.jpg" width="100%" alt="Subscription Image"></a>
+        </div>
+    </div>
+
+    
+    
+</section>
+
+
+
+
+<style>
+
+#Subscription_Profile{
+    margin-bottom: 100px;
+}
+.input{
+    width: 20%;
+    display: inline;
+    border: solid;
+    position: absolute;
+    left: 300px;
+    
+}
+
+.remove{
+    margin: 20px;
+    margin-top: 70px;
+}
+.confirm{
+    margin: 20px;
+    margin-top: 70px;
+}
+
+</style>

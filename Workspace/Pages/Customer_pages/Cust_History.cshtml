@@ -1,0 +1,53 @@
+﻿@page
+@model Workspace.Pages.Customer_pages.Cust_HistoryModel
+@{
+    ViewData["Title"] = "Customer Spending History";
+}
+
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    footer {
+        margin-top: auto;
+    }
+</style>
+
+
+
+<section>
+<div class="container">
+    <h1 class="text-center">@ViewData["Title"]</h1>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Room Type / Event Title</th>
+                    <th>Duration</th>
+                    <th>Payment Cost</th>
+                    <th>Payment Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                    @foreach (var row in Model.SpendingData)
+{
+                        Console.WriteLine(row["payment_type"].ToString());
+                        <tr>
+        <td>@DateTime.Parse(row["date"].ToString()).ToString("yyyy/M/d - h:mm tt")</td>
+        <td>@(row["payment_type"].ToString() == "Products" ? "Products" : row["room_type"] != null ? row["room_type"] + " Room" : (row["event_title"] != null ? "EVENT - " + row["event_title"] : "N/A"))</td>
+        <td>@(row["payment_type"].ToString() == "Products" ? "N/A" : row["duration"].ToString() + " Hours")</td>
+        <td>@(row["payment_cost"] + " L.E.")</td>
+        
+        <td>@(row["payment_type"].ToString() == "Products" ? "Cash" : row["payment_type"]) </td>
+    </tr>
+}
+            </tbody>
+        </table>
+    </div>
+</div>
+</section>

@@ -1,0 +1,287 @@
+﻿@page
+@model Workspace.Pages.employees_pages.Hire_EmpModel
+@{
+}
+
+
+
+
+
+
+<!DOCTYPE html>
+<head>
+
+    <link rel="stylesheet" href="~/css/Hire_Style.css" asp-append-version="true" />
+</head>
+
+<h2 class="text-success">@Model.msgSucc</h2>
+<form method="post">
+<div class="container-fluid">
+
+    <div class="container">
+        <!-- Title -->
+        <div class="d-flex justify-content-between align-items-lg-center py-3 flex-column flex-lg-row">
+            <h2 class="h5 mb-3 mb-lg-0"><a asp-page="/employees_pages/employees_list" class="text-muted"><i class="bi bi-arrow-left-square me-2"></i></a> Users list</h2>
+            <div class="hstack gap-3">
+                <button  class="btn btn-light btn-sm btn-icon-text" asp-page-handler="Button2"><i class="bi bi-x" ></i> <span class="text">Cancel</span></button>
+                <button class="btn btn-primary btn-sm btn-icon-text" asp-page-handler="Button1"><i class="bi bi-save"></i> <span class="text">Save</span></button>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="row">
+            <!-- Left side -->
+            <div class="col-lg-8">
+                <!-- Basic information -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h6 mb-4">Basic information</h3>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label">First name</label>
+                                    <input type="text" class="form-control" asp-for="@Model.e.Fname">
+                                    <span asp-validation-for="@Model.e.Fname" class="text-warning"></span>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Last name</label>
+                                    <input type="text" class="form-control" asp-for="@Model.e.Lname">
+                                        <span asp-validation-for="@Model.e.Fname" class="text-warning"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" asp-for="@Model.e.Email">
+                                        <span asp-validation-for="@Model.e.Email" class="text-warning"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Phone number</label>
+                                    <input type="number" class="form-control" asp-for="@Model.e.phoneno">
+                                        <span asp-validation-for="@Model.e.phoneno" class="text-warning" class="text-bg-danger"></span>
+                                        <p class="text-danger"> @Model.msgPhoneNo</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Gender</label>
+                                    <select class="select2 form-control select2-hidden-accessible" data-select2-placeholder="Select Gender" data-select2-id="select2-data-1-gy14" tabindex="-1" aria-hidden="true" asp-for="@Model.e.gender">
+                                            <span asp-validation-for="@Model.e.gender" class="text-warning"></span>
+                                        <option value="Male" >Male</option>
+                                      <option value="Female">Female</option>
+									</select>
+								</div>
+                                </div>
+                         
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Age</label>
+                                    <input type="number" class="form-control" asp-for="@Model.e.age">
+                                        <span asp-validation-for="@Model.e.age" class="text-warning"></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label class="form-label">Creative Space ID </label>
+                        <input type="number" class="form-control" asp-for="  e.ID" placeholder="0000-0000">
+                                <span asp-validation-for="@Model.e.ID" class="text-warning"></span>
+                                <p class="text-danger"> @Model.msgid</p>
+                    </div>
+                 
+                </div>    
+                
+                 <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h6 mb-4">Credentials</h3>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Username</label>
+                                    <input type="text" class="form-control" asp-for="@Model.e.username">
+                                            <span asp-validation-for="@Model.e.username" class="text-warning"></span>
+                                            <p class="text-danger"> @Model.msgusername</p>
+                                </div>
+                                </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Password</label>
+                                            <input type="password" class="form-control" asp-for="@Model.e.Pass   ">
+                                            <span asp-validation-for="@Model.e.Pass" class="text-warning"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+
+                   
+                <!-- Address -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                      
+                        <div class="mb-3">
+                            <label class="form-label">Salary/per Month</label>
+                            <input type="number" class="form-control" placeholder="EGP" asp-for="@Model.e.Salary">
+                                <span asp-validation-for="@Model.e.Salary" class="text-warning"></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Country</label>
+                                    <select class="select2 form-control select2-hidden-accessible" data-select2-placeholder="Select country" data-select2-id="select2-data-1-gy14" tabindex="-1" aria-hidden="true">
+                                        <option value="Egypt" >Egypt</option>
+                                        @*    <option data-select2-id="select2-data-3-ibs9"></option>
+                                        <option value="AF">Afghanistan</option>
+                                        <option value="BS">Bahamas</option>
+                                        <option value="KH">Cambodia</option>
+                                        <option value="DK">Denmark</option>
+                                        <option value="TL">East Timor</option>
+                                        <option value="GM">Gambia</option>*@
+                                    </select><span class="select2 select2-container select2-container--bootstrap-5" dir="ltr" data-select2-id="select2-data-2-46y9" style="width: 391px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-vp8l-container" aria-controls="select2-vp8l-container"><span class="select2-selection__rendered" id="select2-vp8l-container" role="textbox" aria-readonly="true" title="Select country"><span class="select2-selection__placeholder">Select country</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Area/street/BuildingNo.</label>
+                                    <input type="text" class="form-control"  asp-for="@Model.e.AddressLine"/>
+                                        <span asp-validation-for="@Model.e.AddressLine" class="text-warning"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label class="form-label">City</label>
+                                    <select class="select2 form-control select2-hidden-accessible" data-select2-placeholder="Select city" data-select2-id="select2-data-7-809c" tabindex="-1" aria-hidden="true" asp-for="@Model.e.city">
+                                            <span asp-validation-for="@Model.e.city" class="text-warning"></span>
+                                            <option value="Cairo">Cairo</option>
+                                            <option value="Alexandria">Alexandria</option>
+                                            <option value="Giza">Giza</option>
+                                            <option value="Sharm El Sheikh">Sharm El Sheikh</option>
+                                            <option value="Luxor">Luxor</option>
+                                            <option value="Aswan">Aswan</option>
+                                            <option value="Hurghada">Hurghada</option>
+                                            <option value="Dahab">Dahab</option>
+                                            <option value="Marsa Alam">Marsa Alam</option>
+                                            <option value="Port Said">Port Said</option>
+                                            <option value="Suez">Suez</option>
+                                            <option value="Asyut">Asyut</option>
+                                            <option value="Ismailia">Ismailia</option>
+                                            <option value="Fayoum">Fayoum</option>
+                                            <option value="Beni Suef">Beni Suef</option>
+                                            <option value="Minya">Minya</option>
+                                            <option value="Tanta">Tanta</option>
+                                            <option value="Zagazig">Zagazig</option>
+                                            <option value="Damietta">Damietta</option>
+                                            <option value="Sohag">Sohag</option>
+                                            <option value="Qena">Qena</option>
+                                            <option value="Banha">Banha</option>
+                                            <option value="Kafr El Sheikh">Kafr El Sheikh</option>
+                                            <option value="Mansoura">Mansoura</option>
+                                            <option value="Assiut">Assiut</option>
+                                            <option value="El-Mahalla El-Kubra">El-Mahalla El-Kubra</option>
+                                            <option value="El Arish">El Arish</option>
+                                            <option value="Damanhur">Damanhur</option>
+                                            <option value="Luxor">Luxor</option>
+                                            <option value="Port Safaga">Port Safaga</option>
+                                            <option value="Ras Sedr">Ras Sedr</option>
+                                            <option value="Safaga">Safaga</option>
+                                            <option value="Siwa Oasis">Siwa Oasis</option>
+                                            <option value="Sohag">Sohag</option>
+                                            <option value="Suez">Suez</option>
+                                            <option value="Taba">Taba</option>
+                                            <option value="Zamalek">Zamalek</option>
+                                            <option value="El-Alamein">El-Alamein</option>
+                                            <option value="El Gouna">El Gouna</option>
+                                            <option value="Makadi Bay">Makadi Bay</option>
+                                            <option value="Mersa Matruh">Mersa Matruh</option>
+                                            <option value="New Cairo">New Cairo</option>
+                                            <option value="Ras Ghareb">Ras Ghareb</option>
+                                            <option value="Soma Bay">Soma Bay</option>
+                                            <option value="Saint Catherine">Saint Catherine</option>
+                                            <option value="Nuweiba">Nuweiba</option>
+                                            <option value="Marsa Alam">Marsa Alam</option>
+                                            <option value="El Tor">El Tor</option>
+@*											<option data-select2-id="select2-data-9-k35n"></option>
+*@                                    </select><span class="select2 select2-container select2-container--bootstrap-5" dir="ltr" data-select2-id="select2-data-8-3peu" style="width: 391px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-jdfi-container" aria-controls="select2-jdfi-container"><span class="select2-selection__rendered" id="select2-jdfi-container" role="textbox" aria-readonly="true" title="Select city"><span class="select2-selection__placeholder">Select city</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right side -->
+            <div class="col-lg-4">
+                <!-- Status -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h6">Status</h3>
+                        <select class="form-select" asp-for="@Model.e.status">
+                           
+                            <option value="Full-Time">Full-Time</option>
+                            <option value="Part-Time">Part-Time</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Avatar -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h6">Image</h3>
+                        <input class="form-control" type="file">
+                    </div>
+                </div>
+                <!-- Notes -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h6">Notes</h3>
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+                <!-- Notification settings -->
+             @*   <div class="card mb-4">
+                    <div class="card-body">
+                        <h3 class="h6">Notification Settings</h3>
+                        <ul class="list-group list-group-flush mx-n2">
+                            <li class="list-group-item px-0 d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <h6 class="mb-0">News and updates</h6>
+                                    <small>News about product and feature updates.</small>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch">
+                                </div>
+                            </li>*@
+                      
+                                
+                               
+                         
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</form>

@@ -1,0 +1,77 @@
+﻿@page
+@model Workspace.Pages.MyTasks.SubscriptionModel
+@{
+    ViewData["Title"] = "Subscriptions";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body>
+    <section id="Subscription" class="Subscription">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Choose Your Plan</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 d-flex align-items-stretch " data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box iconbox-blue">
+                        <img src="~/img/Standard.jpg" alt="room image" width="90%" height="auto" style="margin: -10px -10px;" />
+                        <br />
+                        <br />
+                        <h4><a href="/MyTasks/Subscription_Profile">Standard</a></h4>
+                        <ul style="text-align: left;">
+                            <li>20% Discount on All Rooms.</li>
+                            <li>1 Free Menu Items Daily.</li>
+                            <li>30% Off on All Events.</li>
+                            <li>Standard Badge & Title.</li>
+                        </ul>
+
+                   
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box iconbox-orange ">
+                        <img src="~/img/Premium.jpg" alt="room image" width="100%" height="auto" style="margin: -10px -10px;" />
+                        <br />
+                        <br />
+                        <h4><a href="/MyTasks/Subscription_Profile">Premium</a></h4>
+                        <ul style="text-align: left;">
+                            <li>35% Discount on All Rooms.</li>
+                            <li>2 Free Menu Items Daily.</li>
+                            <li>45% Off on All Events.</li>
+                            <li>Premium Badge & Title.</li>
+                        </ul>
+                </div>
+            </div>
+
+
+            <div class="col-lg-4 col-md-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box iconbox-yellow">
+                        <img src="~/img/VIP.jpg" alt="room image" width="100%" height="auto" style="margin: -10px -10px;" />
+                        <br />
+                        <br />
+                        <h4><a href="/MyTasks/Subscription_Profile">VIP</a></h4>
+                        <ul style="text-align: left;">
+                            <li>60% Discount on All Rooms.</li>
+                            <li>4 Free Menu Items Daily.</li>
+                            <li>75% Off on All Events.</li>
+                            <li>1 Free Hosting Event Monthly.</li>
+                            <li>VIP Badge & Title.</li>
+                        </ul>
+                </div>
+            </div>
+    
+
+        </div>
+
+    </div>
+</section>
+</body>
+</html>

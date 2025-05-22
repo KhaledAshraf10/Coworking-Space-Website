@@ -1,0 +1,104 @@
+﻿@page
+@{
+    if(Model.user_Type == 0)
+        Layout = "_Layout";
+    if (Model.user_Type == 1)
+        Layout = "_LayoutAdmin";
+    if(Model.user_Type == 2)
+        Layout = "_LayoutEmployee";
+    if (Model.user_Type == 3)
+        Layout = "_LayoutCustomer";
+}
+@model Workspace.Pages.LogIn.SignUPModel
+
+@{
+    ViewData["Title"] = "SignUp";
+}
+
+<script>
+    document.querySelector("body").style.backgroundColor = "#F6F1E9";
+    document.getElementById("header").style.width = "100%";
+    document.getElementById("header").style.margin = "0";
+
+  //  document.getElementById("FORMSIGN").addEventListener('submit', function(event) {
+  //  var password = document.querySelector(".PASSWORD").value;
+  //  var confirmPassword = document.querySelector(".CONfirmPASSWORD").value;
+    
+  //  if (password.length < 8) {
+  //    alert('Password must be at least 8 characters long.');
+  //    event.preventDefault(); // Prevent form submission
+  //  }
+    
+  //  if (password !== confirmPassword) {
+  //    alert('Passwords do not match.');
+  //    event.preventDefault(); // Prevent form submission
+  //  }
+  //});
+
+</script>
+
+<section class="vh-100" id="Login">
+
+       <div class="row">
+            <div class="col-lg-6">
+
+                    <form class="Form" method="post" id="FORMSIGN">
+                         
+                        <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign Up</h3>
+                        <div class="row">
+                             <div class="col-lg-6">
+                                <input type="text" id="form2Example18" class="form-control form-control-lg" name="firstName" required="" />
+                                <label class="form-label" for="form2Example18">First Name</label>
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="text" id="form2Example18" class="form-control form-control-lg" name="lastName" required="" />
+                                <label class="form-label" for="form2Example18">Last Name</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input type="email" id="form2Example18" class="form-control form-control-lg" name="email" required="" />
+                                <label class="form-label" for="form2Example18">Email address</label>
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="text" id="form2Example18" class="form-control form-control-lg" name="phoneNum" required="" />
+                                <label class="form-label" for="form2Example18">PhoneNumber</label>
+                            </div>
+                        </div>
+                       
+
+                        <div class="form-outline mb-4">
+                            <input type="text" id="form2Example18" class="form-control form-control-lg" name="userName" required="" />
+                            <label class="form-label" for="form2Example18">User Name</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="password" id="form2Example28" class="form-control form-control-lg PASSWORD" name="password" required="" />
+                            <label class="form-label" for="form2Example28">Password</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="password" id="form2Example28" class="form-control form-control-lg CONfirmPASSWORD" name="confirmpassword" required="" />
+                            <label class="form-label" for="form2Example28">Confirm Password</label>
+                        </div>
+
+                        <button class="btn btn-warning" formmethod="post">
+                            Sign Up
+                        </button>
+
+        
+                        <span>Have an account? </span>
+                        <button>
+                            <a asp-page="/LogIn/Login" class="link-info">Log In</a>
+                        </button>
+
+                    </form>
+
+
+            </div>
+            <div class="col-lg-6">
+                <img src="~/Images/Study.jpg" alt="Login image" class="studyImageSignUp">
+            </div>
+        </div>
+</section

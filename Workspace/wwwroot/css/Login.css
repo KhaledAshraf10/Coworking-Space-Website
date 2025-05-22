@@ -1,0 +1,22 @@
+@media (min-width: 1025px) {
+    .h-custom-2 {
+        height: 100%;
+    }
+}
+
+#Login {
+    margin: 10px;
+    background-color: #F6F1E9 !important;
+}
+.btn{
+    margin-bottom: 20px;
+    width: 300px;
+}
+.btnSignUp{
+    margin-right: 15px;
+}
+.studyImageSignUp {
+    margin-right: 10px;
+    height: 450px;
+}
+

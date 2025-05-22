@@ -1,0 +1,40 @@
+﻿@page
+@model Workspace.Pages.MyTasks.EventAdminModel
+@{
+}
+<br>
+<h2 style="display: inline;"><strong>Events</strong></h2>
+<br>
+<br>
+
+<div class="text-center">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Attendes</th>
+                <th scope="col">Name</th>
+                <th scope="col">Cost</th>
+                <th scope="col">Room ID</th>
+                <th scope="col">Date </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < @Model.dt.Rows.Count; i++)
+            {
+                <tr>
+                    <th scope="row">@Model.dt.Rows[i][0]</th>
+                    @for (int j = 1; j < @Model.dt.Columns.Count; j++)
+                    {
+                        <td>@Model.dt.Rows[i][j]</td>
+                    }
+                    <td>
+                        
+                        <a asp-page="UpdateEvent" asp-route-id="@Model.dt.Rows[i][0]">Update</a> |
+                        <a asp-page="DeleteEvent" asp-route-id="@Model.dt.Rows[i][0]">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

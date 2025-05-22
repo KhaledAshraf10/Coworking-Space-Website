@@ -1,0 +1,46 @@
+﻿@page
+@model Workspace.Pages.MyTasks.UpdateEventModel
+@{
+}
+<div >
+    <br>
+    <form method="post">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Event Name</label>
+                <input type="text" class="form-control" asp-for=@Model.e.Title >
+            </div>
+        </div>
+        <br>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Cost</label>
+                <input type="number" class="form-control" asp-for=@Model.e.Cost >
+            </div>
+        </div>
+        <br>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Number Of Attendes</label>
+                <input type="number" class="form-control" asp-for=@Model.e.NUM_Attendes >
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="date-input">Date</label>
+                    <input type="date" id="date-input" asp-for=@Model.e.Time class="form-control" >
+
+                </div>
+            </div>
+
+
+        </div>
+        <br>
+        
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+<p style="color:red">@Model.msg</p>

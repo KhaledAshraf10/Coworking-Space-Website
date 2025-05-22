@@ -1,0 +1,227 @@
+﻿@page
+@{
+    if (Model.user_Type == 1)
+        Layout = "_LayoutAdmin";
+    if (Model.user_Type == 2)
+        Layout = "_LayoutEmployee";
+    if (Model.user_Type == 3)
+        Layout = "_LayoutCustomer";
+}
+@model Workspace.Pages.MyTasks.RoomProfileModel
+@{
+    ViewData["Title"] = "Room Info";
+}
+
+<script>
+    document.querySelector("body").style.backgroundColor = "#F6F1E9";
+    document.getElementById("header").style.width = "100%";
+    document.getElementById("header").style.margin = "0";
+</script>
+
+<style>
+    .timetable {
+        width: 100%;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .imagePayment{
+        margin-right: 6px;
+    }
+    .InfoBooking{
+        width: 300px;
+        height: 50px;
+    }
+    .getBook{
+        color: white;
+        font-size: 19px;
+    }
+
+    .getBook :hover{
+        color: #E57C23;
+    }
+</style>
+
+<section class="vh-100" id="Login" style="height: 900px;">
+    <div class="row">
+        <div class="col-lg-6">
+
+            <div class="card-body">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="card-title">Room Number: @Model.ID_Room</h2>
+                </div>
+                @if (Model.user_Type == 1 || Model.user_Type == 2)
+                {
+                    <div class="col-lg-6" style="text-align: center;">
+                        <a asp-page="/MyTasks/Rooms_Sheet" class="btn btn-warning InfoBooking"><span class="getBook"><strong>Get Booking Rooms Sheet</strong></span></a>
+                    </div>
+                }
+                    
+            </div>
+               
+            <br />
+                <p class="card-text">This is a Public Room, you can book a Chair</p> <br /><br />
+                <form method="post">
+                    <input type="number"value="@Model.CustomerID" name="CUSTID" style="display: none;">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="date-input">Room Number</label>
+                                <input type="number" id="date-input" class="form-control" readonly name="RoomNUM" value="@Model.ID_Room">
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="date-input">Date</label>
+                                <input type="date" id="date-input" class="form-control" required="" name="dateBook">
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="time-input">Time</label>
+                                <input type="time" id="time-input" class="form-control" required="" name="timeBook">
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Duration</label>
+                                <input type="number" class="form-control" required="" name="durationBook">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br /><br />
+                    <button class="btn btn-primary" formmethod="post">Book</button> 
+                    
+                    <button class="btn btn-danger" asp-page-handler="CancelBooking">Cancel</button>
+                </form>
+            </div>
+
+            <br /><br />
+            <h3> Pay Through One of Our Great Partners </h3><br />
+            <div data-aos="zoom-in" class="aos-init aos-animate">
+                <img src="~/img/WhatsApp Image 2023-05-17 at 16.20.27.jpg" alt="Master card" class="imagePayment">
+                <img src="~/img/WhatsApp Image 2023-05-17 at 16.20.277.jpg" alt="vodafon" class="imagePayment">
+                <img src="~/img/WhatsApp Image 2023-05-17 at 16.20.286.jpg" alt="bank misr" class="imagePayment">
+                <img src="~/img/WhatsApp Image 2023-05-17 at 16.jpg" alt="CIB" class="imagePayment">
+               
+            </div>
+
+
+
+
+        </div>
+        <div class="col-lg-6" style="text-align: center;">
+            <h2 style="margin-bottom: 20px;"><strong>Calender</strong></h2>
+
+            <div class="timetable">
+
+                <table>
+                    <tr>
+                        <th>Time</th>
+                        <th>01:00 PM</th>
+                        <th>02:00 PM</th>
+                        <th>03:00 PM</th>
+                        <th>04:00 PM</th>
+                        <th>05:00 PM</th>
+                        <th>06:00 PM</th>
+                        <th>07:00 PM</th>
+                        <th>08:00 PM</th>
+                        <th>09:00 PM</th>
+                        <th>10:00 PM</th>
+                        <th>11:00 PM</th>
+                        <th>12:00 AM</th>
+                    </tr>
+
+
+                    @for (int i = 0; i < 7; i++)
+                    {
+                        <tr>
+                            <td>@DateTime.Now.AddDays(i).ToString("dddd, yyyy-MM-dd")</td>
+                            @for (int g = 0; g < 12; g++)
+                            {
+                                @if(Model.ID_Room <= 6)
+                                {
+                                    <td>@Model.capcityList[i*12+g]<span>/30</span></td>
+                                }
+                                else
+                                {
+                                    @if (@Model.capcityList[i*12+g] > 0)
+                                    {
+                                        <td style="background-color: #ED2B2A"></td>
+                                    }
+                                    else
+                                    {
+                                        <td style="background-color: #1B9C85"></td>
+                                    }
+                                }
+
+
+
+                        }
+                        </tr>
+                    }
+
+       
+                </table>
+
+
+                @*<table>
+                        <tr>
+                            <th>Time</th>
+                            <th>@DateTime.Now.ToString("dddd, yyyy-MM-dd")</th>
+                            <th>@DateTime.Now.AddDays(1).ToString("dddd, yyyy-MM-dd")</th>
+                            <th>@DateTime.Now.AddDays(2).ToString("dddd, yyyy-MM-dd")</th>
+                            <th>@DateTime.Now.AddDays(3).ToString("dddd, yyyy-MM-dd")</th>
+                            <th>@DateTime.Now.AddDays(4).ToString("dddd, yyyy-MM-dd")</th>
+                            <th>@DateTime.Now.AddDays(5).ToString("dddd, yyyy-MM-dd")</th>
+                            <th>@DateTime.Now.AddDays(6).ToString("dddd, yyyy-MM-dd")</th>
+
+                        </tr>
+                        @for(int i = 0 ; i<6; i++)
+                        {
+                            <tr>
+                                <td>01:00 PM</td>
+                            @for (int g = 0; g < 7; g++)
+                                {
+                                    <td>@Model.capcityList[i+g*12]<span>/30</span></td>
+                            }
+                            </tr>
+                        }
+                    
+                        
+                    
+                </table>*@
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+</section>
